@@ -29,16 +29,16 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'database1',
-            'USER': 'laike9m',
+            'USER': 'qinggniq',
             'PASSWORD': os.environ["DJANGO_DB_PASSWORD"],
             'HOST': '',
             'PORT': '',
         }
     }
-    PROJECT_DIR = '/home/laike9m/Envs/blog/My_Blog/'
-    MEDIA_ROOT = '/home/laike9m/media/'
+    PROJECT_DIR = '/home/wc/My_Blog/'
+    MEDIA_ROOT = '/home/wc/media/'
     MEDIA_URL = '/media/'
-    STATIC_ROOT = '/home/laike9m/static/'
+    STATIC_ROOT = '/home/wc/static/'
     STATIC_URL = '/static/'
 
     STATICFILES_DIRS = (
@@ -50,7 +50,7 @@ else:
     )
 
     ALLOWED_HOSTS = [
-        '.laike9m.com',
+        '.qinggniq.com',
     ]
 
     # cache entire site

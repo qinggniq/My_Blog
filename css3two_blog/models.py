@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.db import models
 from django.utils import timezone
-
+from django.utils.html import strip_tags
 # for slug, get_absolute_url
 from django.template.defaultfilters import slugify
 from django.core.urlresolvers import reverse
@@ -49,7 +49,7 @@ class BlogPost(models.Model):
 
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True)
-    models.CharField(max_length=200, blank=True) # wc add
+    excerpt = models.CharField(max_length=200, blank=True) # wc add
     # uploaded md file
     md_file = models.FileField(upload_to=get_upload_md_name, blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
@@ -75,16 +75,15 @@ class BlogPost(models.Model):
         self.slug = slugify(unidecode(self.title))
         if not self.body and self.md_file:
             self.body = self.md_file.read()
-
-        html = markdown2.markdown(self.body,
-                                  extras=["fenced-code-blocks", "tables", "toc",
+        md = markdown2.Markdown(extras=["fenced-code-blocks", "tables", "toc",
                                           "header-ids"])
+        html = md.convert(self.body)
         if html.toc_html:
             content_file = ContentFile(html.toc_html.encode('utf-8') +
                                        html.encode('utf-8'))
         else:
             content_file = ContentFile(html.encode('utf-8'))
-        self.excerpt = strip_tags(md.convert(self.body))[:54] #TODO 改摘要
+        self.excerpt = strip_tags(html)[:54] #TODO 改摘要
         self.html_file.save(self.title + '.html', content_file, save=False)
         self.html_file.close()
 
