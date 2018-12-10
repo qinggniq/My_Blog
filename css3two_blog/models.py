@@ -49,6 +49,7 @@ class BlogPost(models.Model):
 
     title = models.CharField(max_length=150)
     body = models.TextField(blank=True)
+    models.CharField(max_length=200, blank=True) # wc add
     # uploaded md file
     md_file = models.FileField(upload_to=get_upload_md_name, blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
@@ -83,7 +84,7 @@ class BlogPost(models.Model):
                                        html.encode('utf-8'))
         else:
             content_file = ContentFile(html.encode('utf-8'))
-
+        self.excerpt = strip_tags(md.convert(self.body))[:54] #TODO 改摘要
         self.html_file.save(self.title + '.html', content_file, save=False)
         self.html_file.close()
 
@@ -92,6 +93,9 @@ class BlogPost(models.Model):
     def display_html(self):
         with open(self.html_file.path, encoding='utf-8') as f:
             return f.read()
+
+    def display_excerpt(self):
+        return self.excerpt
 
     def get_absolute_url(self):
         return reverse('css3two_blog.views.blogpost',
