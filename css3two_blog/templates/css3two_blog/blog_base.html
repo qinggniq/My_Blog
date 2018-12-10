@@ -30,8 +30,9 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/gfm.css' %}"/>
   <link rel="stylesheet" type="text/css" href="{% static 'css3two_blog/css/hybrid.css' %}">
   {% block pagecss %}{% endblock pagecss %}
-  <script src="{% static css3two_blog/js/jquery-2.1.1.min.js %}" type="text/javascript"></script>
-  <script src="{% static css3two_blog/js/jquery.gradientify.min.js" %}></script>
+  <script src="{% static 'css3two_blog/js/jquery-2.1.1.min.js' %}" type="text/javascript"></script>
+
+  <script src="{% static 'css3two_blog/js/jquery.gradientify.min.js' %}"></script>
   <script>
     // Google Analytics
     window.ga = window.ga || function () {
@@ -41,21 +42,12 @@
     ga('create', 'UA-69544114-1', 'auto');
     ga('send', 'pageview');
 
-    $(document).ready(function() {
-      $("body").gradientify({
-        gradients: [
-          { start: [49,76,172], stop: [242,159,191] },
-          { start: [255,103,69], stop: [240,154,241] },
-          { start: [33,229,241], stop: [235,236,117] }
-        ]
-      });
-    });
 
   </script>
   <script async src='//www.google-analytics.com/analytics.js'></script>
 </head>
 
-<body>
+<body style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
 <div id="main" style="position: relative;">
   <a href="https://github.com/qinggniq">
     <img style="position: absolute; top: 0; right: 0; border: 0;"
@@ -268,12 +260,17 @@
   hljs.initHighlightingOnLoad();
 </script>
 <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/jquery/2.0.3/jquery-2.0.3.min.js"></script>
-<script type="text/javascript"
         src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript">
   var sidebar = $('.toggle-sidebar');
   $(document).ready(function () {
+$("body").gradientify({
+			gradients: [
+				{ start: [49,76,172], stop: [242,159,191] },
+				{ start: [255,103,69], stop: [240,154,241] },
+				{ start: [33,229,241], stop: [235,236,117] }
+			]
+		});
   });
   $(window).load(function () {
     $('.top').click(function () {
