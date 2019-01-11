@@ -5,7 +5,7 @@ import platform
 node = platform.node()
 dev_machines = ('dell-PC', 'wc-1544368996352-s-1vcpu-1gb-nyc1-01',)
 
-if node in dev_machines:
+if True:#node in dev_machines:
     # folder My_Blog
     My_Blog = os.path.dirname(os.path.dirname(__file__))
     # project dir, contains static and media folder under DEV environment
