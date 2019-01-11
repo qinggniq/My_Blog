@@ -45,10 +45,20 @@
 
   </script>
   <script async src='//www.google-analytics.com/analytics.js'></script>
+<style>
+    .box {
+    background: linear-gradient(to right, #9796f0, #fbc7d4);
+}
+.box_div{
+    box-shadow: 0 0 15px -2px #444444;
+}
+
+</style>
+
 </head>
 
-<body style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<div id="main" style="position: relative;">
+<body style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';" class="box">
+<div id="main" style="position: relative;" class="box_div">
   <a href="https://github.com/qinggniq">
     <img style="position: absolute; top: 0; right: 0; border: 0;"
          src="{% static 'css3two_blog/images/forkme.png' %}"
@@ -75,7 +85,7 @@
     </nav>
   </header>
 
-  <div id="site_content">
+  <div id="site_content" class="box_div">
 
     <div class="content_container">
       <span class="toggle-sidebar"></span>
@@ -100,13 +110,13 @@
           <p>For me, there's nothing to say
           </p>
           <!-- StackExchange User Flair http://stackoverflow.com/users/flair -->
-          <a href="http://stackoverflow.com/users/2142577/qinggniq TODO"
+          <!--<a href="http://stackoverflow.com/users/2142577/qinggniq TODO"
              target="_blank">
             <img src="https://stackoverflow.com/users/flair/2142577.png"
                  width="208" height="58"
                  alt="profile for qinggniq on Stack Exchange, a network of free, community-driven Q&amp;A sites"
                  title="profile for qinggniq on Stack Exchange, a network of free, community-driven Q&amp;A sites">
-          </a>
+          </a> >
           <!-- <div class="zhihu-card" data-description="no" data-userhash="qinggniq" data-button="no" data-width="208px"
                data-theme="github" data-suffix=" @知乎"></div>
           <script src="https://qinggniq.github.io/zhihu-card/dist/widget.js"></script> -->
@@ -263,15 +273,6 @@
         src="https://cdn.jsdelivr.net/jquery.ui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript">
   var sidebar = $('.toggle-sidebar');
-  $(document).ready(function () {
-$("body").gradientify({
-			gradients: [
-				{ start: [49,76,172], stop: [242,159,191] },
-				{ start: [255,103,69], stop: [240,154,241] },
-				{ start: [33,229,241], stop: [235,236,117] }
-			]
-		});
-  });
   $(window).load(function () {
     $('.top').click(function () {
       $('html, body').animate({scrollTop: 0}, 1000);
