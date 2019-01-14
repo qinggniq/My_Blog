@@ -6,6 +6,17 @@
     <title>qinggniq's blog</title>
     <meta name="description" content="分享关于技术，生活，ACG的点滴">
   {% endblock head %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
   <link rel="shortcut icon" type="image/x-icon"
         href="{% static 'css3two_blog/images/favicon2.ico' %}"/>
   <meta name="keywords" content="website keywords, website keywords"/>
@@ -44,7 +55,7 @@
 
 
   </script>
-  <script async src='//www.google-analytics.com/analytics.js'></script>
+ <!-- <script async src='//www.google-analytics.com/analytics.js'></script> -->
 <style>
     .box {
     background: linear-gradient(to right, #9796f0, #fbc7d4);
@@ -206,6 +217,10 @@
               <a href="http://yonghaowu.github.io/" target="_blank"
                  class="blogroll">YongHao Hu</a>
             </p>
+              <p>
+Whenss $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</p>
             <p>
               <a href="http://www.codcodog.me/" target="_blank"
                  class="blogroll">Codcodog's Notes</a>

@@ -76,7 +76,7 @@ class BlogPost(models.Model):
         if not self.body and self.md_file:
             self.body = self.md_file.read()
         md = markdown2.Markdown(extras=["fenced-code-blocks", "tables", "toc",
-                                          "header-ids"])
+                                        "strike", "footnotes", "spoiler", "task_list"])
         html = md.convert(self.body)
         if html.toc_html:
             content_file = ContentFile(html.toc_html.encode('utf-8') +
