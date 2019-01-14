@@ -629,3 +629,8 @@ span.alignright.toggle-sidebar:after {
     font-size: 2em;
     text-rendering: OptimizeLegibility;
 }
+
+
+.task-list-item {
+  list-style-type: none;
+}
